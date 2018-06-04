@@ -6,5 +6,12 @@
 
 int main(void)
 {
+	//Parsování vstupu
+
+	//Připojení
+
+	//Cyklus: Komunikace se serverem
+
+	//Konec: výpis úspěch nebo chyba
 	return 0;
 }

@@ -6,5 +6,14 @@
 
 int main(int argc, char* argv[])
 {
+	// Parametry
+
+	// Rozlišení typu spuštštění
+
+	// Thread 1: Cyklus Network NEBO IO
+
+	// Thread 2: Database
+
+	// 
 	return 0;
 }
