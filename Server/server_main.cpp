@@ -6,6 +6,12 @@
 
 int main(int argc, char* argv[])
 {
+	ParameterParser Parser(argc, argv);
+	if (Parser.getError())
+	{
+		std::cout << "Nastala chyba, špatné parametry nebo jejich duplikace" << std::endl;
+	}
+	std::cout << Parser.getMode() << Parser.getPort() << Parser.getHost() << std::endl;
 	// Parametry
 
 	// Rozlišení typu spuštštění

@@ -4,6 +4,7 @@
 
 #pragma once
 
+#include <iostream>
 #include <string>
 
 //Server -m mode -p port
@@ -16,13 +17,13 @@ private:
 	bool m_error {false};
 	bool m_mode {false};
 	int m_port {0};
-	string m_host {""};
+	std::string m_host {""};
 
 public:
 	ParameterParser(int t_argc, char* t_argv[]);
 	~ParameterParser();
-	string getHost();
+	std::string getHost();
 	bool getError();
 	bool getMode();
 	int getPort();
-}
+};
