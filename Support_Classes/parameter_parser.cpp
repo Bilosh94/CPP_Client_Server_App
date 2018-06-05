@@ -1,7 +1,7 @@
 //	Autor:	Martin Biloš
 //	Co:		CPP_Client_Server_App
 //	Důvod:	Třída pro třízení a kontrolu parametrů
-//  TODO: Dupilkace parametrů
+//  TODO: The Bilosh 3: Bug Hunt
 
 #include "parameter_parser.hpp"
 

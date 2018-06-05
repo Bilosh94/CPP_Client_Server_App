@@ -10,9 +10,15 @@ int main(int argc, char* argv[])
 	if (Parser.getError())
 	{
 		std::cout << "Nastala chyba, špatné parametry nebo jejich duplikace" << std::endl;
+		return 1;
 	}
 	std::cout << Parser.getMode() << Parser.getPort() << Parser.getHost() << std::endl;
-	// Parametry
+
+	if (Parser.getMode())
+	{
+		std::cout << "net";
+		//
+	}
 
 	// Rozlišení typu spuštštění
 
