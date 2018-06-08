@@ -16,7 +16,7 @@ int main(int argc, char* argv[])
 
 	if (Parser.getMode())
 	{
-		SerNetwork Sit;
+		SerNetwork Sit(Parser.getPort());
 		Sit.initialize();
 		//Network Mode
 	}

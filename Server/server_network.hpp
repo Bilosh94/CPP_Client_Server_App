@@ -9,7 +9,11 @@
 class SerNetwork : Network
 {
 public:
+	SerNetwork(int t_port);
 	void initialize();
+	int Accept();
 private:
-	
+	struct sockaddr_in m_servAddress;
+	struct sockaddr_in m_cliAddress;
+	int m_port;
 };
