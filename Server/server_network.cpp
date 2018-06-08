@@ -12,7 +12,6 @@ SerNetwork::SerNetwork(int t_port)
 void SerNetwork::initialize()
 {
 	std::cout << "Vyšlo to" << std::endl;
-	socklen_t clilen = sizeof(m_cliAddress);
 	m_socket = socket(AF_INET, SOCK_STREAM, 0);
 	if (m_socket < 0)
  	{
@@ -35,4 +34,19 @@ void SerNetwork::initialize()
 
    	listen(m_socket,5);
    	std::cout << "Vyšlo to" << std::endl;
+}
+
+int SerNetwork::prijmuti()
+{
+	int newsock = -65;
+	socklen_t clilen = sizeof(m_cliAddress);
+	//Později předělat na while -> threads
+	if (newsock = accept(m_socket, (struct sockaddr *) &m_cliAddress, &clilen) )
+	{
+		if(newsock > 0)
+		{
+			m_socket = newsock;
+			return newsock;
+		}
+	}
 }

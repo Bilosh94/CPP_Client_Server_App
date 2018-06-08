@@ -6,12 +6,12 @@
 
 #include "../Support_Classes/network.hpp"
 
-class SerNetwork : Network
+class SerNetwork : public Network
 {
 public:
 	SerNetwork(int t_port);
 	void initialize();
-	int Accept();
+	int prijmuti();
 private:
 	struct sockaddr_in m_servAddress;
 	struct sockaddr_in m_cliAddress;

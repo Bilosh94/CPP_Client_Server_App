@@ -18,6 +18,10 @@ int main(int argc, char* argv[])
 	{
 		SerNetwork Sit(Parser.getPort());
 		Sit.initialize();
+		Sit.prijmuti();
+		Sit.getMessage();
+		std::string mess = "A je to tu!";
+		Sit.sendMessage(mess);
 		//Network Mode
 	}
 	else
