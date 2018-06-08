@@ -1,7 +1,7 @@
 //	Autor:	Martin Biloš
 //	Co:		CPP_Client_Server_App
 //	Důvod:	Třída pro třízení a kontrolu parametrů
-//  TODO: The Bilosh 3: Bug Hunt
+//  TODO: The Bilosh 3: Bug Hunt, Překopat, mít veškterou funkčnost v inicializaci je blbost!
 
 #include "parameter_parser.hpp"
 
