@@ -10,6 +10,7 @@ class SerNetwork : public Network
 {
 public:
 	SerNetwork(int t_port);
+	~SerNetwork();
 	void initialize();
 	int prijmuti();
 private:

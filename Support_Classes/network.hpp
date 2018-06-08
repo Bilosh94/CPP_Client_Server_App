@@ -7,6 +7,7 @@
 
 #include <iostream>
 #include <cstring>
+#include <unistd.h>
 #include <netinet/in.h>
 #include <sys/types.h> 
 #include <sys/socket.h>
@@ -26,5 +27,4 @@ protected:
 	bool m_error {false};
 	int m_socket {-50};
 	char m_buffer [1024] = {0};
-	//short m_Network_mode {0}; 
 };

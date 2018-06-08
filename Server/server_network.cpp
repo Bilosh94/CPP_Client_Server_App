@@ -9,6 +9,11 @@ SerNetwork::SerNetwork(int t_port)
 	m_port = t_port;
 }
 
+SerNetwork::~SerNetwork()
+{
+	close(m_socket);
+}
+
 void SerNetwork::initialize()
 {
 	std::cout << "Vyšlo to" << std::endl;
