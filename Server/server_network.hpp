@@ -5,3 +5,11 @@
 #pragma once
 
 #include "../Support_Classes/network.hpp"
+
+class SerNetwork : Network
+{
+public:
+	void initialize();
+private:
+	
+};

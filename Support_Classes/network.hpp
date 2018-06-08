@@ -5,21 +5,25 @@
 
 #pragma once
 
+#include <iostream>
+#include <cstring>
+#include <sys/types.h> 
+#include <sys/socket.h>
+
 //díky virtual je to abstraktní třída
 class Network
 {
 public:
-	virtual void Inicialize() = 0;
+	virtual void initialize() = 0;
 
-	sendMessage(string message);
-	string getMessage();
+	void sendMessage(std::string message);
+	std::string getMessage();
 
 	bool getError();
 
 protected:
 	bool m_error {false};
 	int m_socket {-50};
-	string m_message;
-	struct sockaddr_in m_otherAddress;
+	char m_buffer [1024] = {0};
 	//short m_Network_mode {0}; 
-}
+};

@@ -4,17 +4,30 @@
 
 #include "network.hpp"
 
-Network::sendMessage()
+void Network::sendMessage(std::string t_mess)
 {
-
+	if(send(m_socket,t_mess.c_str(),t_mess.size(), 0) < 1)
+	{
+		m_error = true;
+	}
 }
 
-Network::getMessage()
+std::string Network::getMessage()
 {
-
+	if (recv(m_socket, m_buffer, 1024, 0) < 1)
+	{
+		m_error = true;
+		return std::string("");
+	}
+	else
+	{
+		std::string message = m_buffer;
+		std::memset(m_buffer,'-',1024);
+		return message;
+	}
 }
 
-Network::getError()
+bool Network::getError()
 {
-
+	return m_error;
 }
