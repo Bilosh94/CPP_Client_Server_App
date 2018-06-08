@@ -1,31 +1,25 @@
 //	Autor:	Martin Biloš
 //	Co:		CPP_Client_Server_App
 //	Důvod:	Header třídy pro síťové spojení klient/server
-//  TODO: Rozdělit to na klienta a server?
+//  TODO: Rozdělit to na klienta a server? a dědit z třídy network?
 
 #pragma once
 
+//díky virtual je to abstraktní třída
 class Network
 {
 public:
-	//3 konstruktory (host + port || port || minulý socket)
-	Network(short t_port); // server
-	Network(short t_port, string t_host); // klient
-	Network(int t_sock); //server_2
-	~Network();
-	serverInicialize();
-	serverAccept(); // možná něco vracet?? -> sock?
+	virtual void Inicialize() = 0;
 
-	klient_inicialize();
-	sendMessage();
-	getMessage();
+	sendMessage(string message);
+	string getMessage();
 
 	bool getError();
 
-
-private:
+protected:
 	bool m_error {false};
 	int m_socket {-50};
-	short m_port {0};
+	string m_message;
+	struct sockaddr_in m_otherAddress;
 	//short m_Network_mode {0}; 
 }

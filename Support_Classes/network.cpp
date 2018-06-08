@@ -3,3 +3,18 @@
 //	Důvod:	Soubor pro třídu zajišťující komuníkaci přes síť
 
 #include "network.hpp"
+
+Network::sendMessage()
+{
+
+}
+
+Network::getMessage()
+{
+
+}
+
+Network::getError()
+{
+
+}

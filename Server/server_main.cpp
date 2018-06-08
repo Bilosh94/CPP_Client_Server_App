@@ -16,8 +16,11 @@ int main(int argc, char* argv[])
 
 	if (Parser.getMode())
 	{
-		std::cout << "net";
-		//
+		//Network Mode
+	}
+	else
+	{
+		//Local mode
 	}
 
 	// Rozlišení typu spuštštění
