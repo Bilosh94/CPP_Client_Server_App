@@ -9,17 +9,31 @@ using namespace std;
 
 ParameterParser::ParameterParser(int t_argc, char* t_argv[])
 {
+	m_parameters.clear();
+	for(int i = 0; i < t_argc; i++)
+	{
+		m_parameters.push_back(std::string(t_argv[i]));
+	}
+}
+
+ParameterParser::~ParameterParser()
+{
+	m_parameters.clear();
+}
+
+void ParameterParser::Parse()
+{
 	bool mode_duplication = false;
-	for(int i = 1; i < t_argc; i++)
+	for(unsigned int i = 1; i < m_parameters.size(); i++)
 	{
 		//port
-		if (string(t_argv[i]) == "-p")
+		if (m_parameters[i] == "-p")
 		{
 			if (m_port != 0)
 			{
 				m_error = true;
 			}
-			m_port = stoi(t_argv[++i]);
+			m_port = stoi(m_parameters[++i]);
 			if ((m_port < 0)||(m_port > 65535))
 			{
 				m_port = 0;
@@ -27,16 +41,16 @@ ParameterParser::ParameterParser(int t_argc, char* t_argv[])
 		}
 
 		//mode
-		else if((string(t_argv[i]) == "-m") && (string(t_argv[0]) == "./Server_App")
+		else if((m_parameters[i] == "-m") && (m_parameters[0] == "./Server_App")
 			&& !(mode_duplication))
 		{
 			++i;
-			if (string(t_argv[i]) == "l")
+			if (m_parameters[i] == "l")
 			{
 				m_mode = false;
 				mode_duplication = true;
 			}
-			else if (string(t_argv[i]) == "n")
+			else if (m_parameters[i] == "n")
 			{
 				m_mode = true;
 				mode_duplication = true;
@@ -48,10 +62,10 @@ ParameterParser::ParameterParser(int t_argc, char* t_argv[])
 		}
 
 		//host
-		else if((string(t_argv[i]) == "-h") && (string(t_argv[0]) == "./Client_App")
+		else if((m_parameters[i] == "-h") && (m_parameters[0] == "./Client_App")
 			&& (m_host.size() == 0))
 		{
-			m_host = t_argv[++i];
+			m_host = m_parameters[++i];
 		}
 
 		//jinak error
@@ -60,11 +74,6 @@ ParameterParser::ParameterParser(int t_argc, char* t_argv[])
 			m_error = true;
 		}
 	}
-}
-
-ParameterParser::~ParameterParser()
-{
-	
 }
 
 std::string ParameterParser::getHost()

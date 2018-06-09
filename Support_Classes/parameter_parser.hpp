@@ -6,6 +6,7 @@
 
 #include <iostream>
 #include <string>
+#include <vector>
 
 //Server -m mode -p port
 
@@ -14,6 +15,7 @@
 class ParameterParser
 {
 private:
+	std::vector <std::string> m_parameters;
 	bool m_error {false};
 	bool m_mode {false};
 	int m_port {0};
@@ -22,6 +24,7 @@ private:
 public:
 	ParameterParser(int t_argc, char* t_argv[]);
 	~ParameterParser();
+	void Parse();
 	std::string getHost();
 	bool getError();
 	bool getMode();

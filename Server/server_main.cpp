@@ -7,11 +7,13 @@
 int main(int argc, char* argv[])
 {
 	ParameterParser Parser(argc, argv);
+	Parser.Parse();
 	if (Parser.getError())
 	{
 		std::cout << "Nastala chyba, špatné parametry nebo jejich duplikace" << std::endl;
 		return 1;
 	}
+	
 	std::cout << Parser.getMode() << Parser.getPort() << Parser.getHost() << std::endl;
 
 	if (Parser.getMode())
