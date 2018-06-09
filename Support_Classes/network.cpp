@@ -4,6 +4,11 @@
 
 #include "network.hpp"
 
+Network::~Network()
+{
+	
+}
+
 void Network::sendMessage(std::string t_mess)
 {
 	if(send(m_socket,t_mess.c_str(),t_mess.size(), 0) < 1)

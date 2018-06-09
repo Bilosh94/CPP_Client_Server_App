@@ -3,3 +3,5 @@
 //	Důvod:	Header main souboru klienta
 
 #pragma once
+
+#include <iostream>

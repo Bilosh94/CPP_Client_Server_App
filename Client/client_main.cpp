@@ -6,6 +6,7 @@
 
 int main(void)
 {
+	std::cout << "Client" << std::endl;
 	//Parsování vstupu
 
 	//Připojení
