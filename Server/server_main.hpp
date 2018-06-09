@@ -7,3 +7,13 @@
 #include <iostream>
 #include "server_network.hpp"
 #include "../Support_Classes/parameter_parser.hpp"
+
+class ThreadMainetence
+{
+public:
+	ThreadMainetence();
+	~ThreadMainetence();
+
+private:
+	
+}
