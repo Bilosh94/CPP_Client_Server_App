@@ -8,6 +8,7 @@
 #include "server_network.hpp"
 #include "../Support_Classes/parameter_parser.hpp"
 
+//Třída starající se o celý průchod přes vlákno (musí zajistit obousměrnou komunikaci a její "překlad")
 class ThreadMainetence
 {
 public:
@@ -15,5 +16,7 @@ public:
 	~ThreadMainetence();
 
 private:
-	
-}
+	//Síťový objekt
+	//Databázový objekt
+	//metody pro propojení
+};

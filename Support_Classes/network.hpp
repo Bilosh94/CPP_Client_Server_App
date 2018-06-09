@@ -17,7 +17,7 @@ class Network
 {
 public:
 	virtual void initialize() = 0;
-	virtual ~Network() = 0;
+	virtual ~Network();
 
 	void sendMessage(std::string message);
 	std::string getMessage();

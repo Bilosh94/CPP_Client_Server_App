@@ -4,10 +4,15 @@
 
 #include "client_main.hpp"
 
-int main(void)
+int main(int argc, char* argv[])
 {
-	std::cout << "Client" << std::endl;
-	//Parsování vstupu
+	ParameterParser Parser(argc, argv);
+	if (Parser.getError())
+	{
+		std::cout << "Nastala chyba, špatné parametry nebo jejich duplikace" << std::endl;
+		return 1;
+	}
+	std::cout << "Client: " << Parser.getPort() << Parser.getHost() << std::endl;
 
 	//Připojení
 

@@ -19,8 +19,16 @@ int main(int argc, char* argv[])
 		SerNetwork Sit(Parser.getPort());
 		Sit.initialize();
 		Sit.prijmuti();
-		Sit.getMessage();
-		std::string mess = "A je to tu!";
+		//Pro každe přijmutí vytvoří nový thread
+		std::string mess = Sit.getMessage();
+		if (mess == "Ahoj\r\n")
+		{
+			mess = "Ahoj\n";
+		}
+		else
+		{
+			mess = "Neahoj\n";
+		}
 		Sit.sendMessage(mess);
 		//Network Mode
 	}

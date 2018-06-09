@@ -5,3 +5,5 @@
 #pragma once
 
 #include <iostream>
+#include "client_network.hpp"
+#include "../Support_Classes/parameter_parser.hpp"
