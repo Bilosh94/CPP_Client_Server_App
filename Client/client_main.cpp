@@ -15,6 +15,16 @@ int main(int argc, char* argv[])
 	}
 	std::cout << "Client: " << Parser.getPort() << Parser.getHost() << std::endl;
 
+	CliNetwork Sit(Parser.getHost(), Parser.getPort());
+	Sit.initialize();
+	if(!Sit.getError())
+	{
+		Sit.sendMessage("Ahoj\r\n");
+		std::string mess = Sit.getMessage();
+		std::cout << mess << std::endl;
+	}
+
+
 	//Připojení
 
 	//Cyklus: Komunikace se serverem

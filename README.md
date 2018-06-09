@@ -1,4 +1,5 @@
 Název:		CPP_Client_Server_App
+
 Autor:		Martin Biloš
 
 Cíl aplikace:
@@ -9,7 +10,5 @@ Cíl aplikace:
 		Klient bude mít možnost měnit a pracovat s daty přes síť.
 
 Popis ovládání:
-
-Spuštění:
 
 Testování:
