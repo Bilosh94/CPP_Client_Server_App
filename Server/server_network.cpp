@@ -41,7 +41,7 @@ void SerNetwork::initialize()
 
 int SerNetwork::prijmuti()
 {
-	int newsock = -65;
+	int newsock = NO_SOCKET;
 	socklen_t clilen = sizeof(m_cliAddress);
 	//Později předělat na while -> threads
 	newsock = accept(m_socket, (struct sockaddr *) &m_cliAddress, &clilen);
@@ -53,6 +53,6 @@ int SerNetwork::prijmuti()
 	else
 	{
 		m_error = true;
-		return (-50);
+		return (NO_SOCKET);
 	}
 }

@@ -1,6 +1,7 @@
 //	Autor:	Martin Biloš
 //	Co:		CPP_Client_Server_App
 //	Důvod:	Soubor pro třídu zajišťující komuníkaci přes síť
+//	TODO:	timeout!
 
 #include "network.hpp"
 #include "constants.hpp"

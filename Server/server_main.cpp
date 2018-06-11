@@ -1,6 +1,7 @@
 //	Autor:	Martin Biloš
 //	Co:		CPP_Client_Server_App
 //	Důvod:	Main soubor pro serverovou aplikaci
+//	TODO:	threads a konkurentní server
 
 #include "server_main.hpp"
 

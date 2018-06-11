@@ -17,5 +17,5 @@ public:
 private:
 	struct sockaddr_in m_servAddress;
 	std::string m_host;
-	int m_port {-87};
+	int m_port {NO_PORT};
 };
