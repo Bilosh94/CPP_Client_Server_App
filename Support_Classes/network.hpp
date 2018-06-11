@@ -11,6 +11,7 @@
 #include <netinet/in.h>
 #include <sys/types.h> 
 #include <sys/socket.h>
+#include "constants.hpp"
 
 //díky virtual je to abstraktní třída
 class Network
@@ -26,6 +27,6 @@ public:
 
 protected:
 	bool m_error {false};
-	int m_socket {-50};
-	char m_buffer [1024] = {0};
+	int m_socket {NO_SOCKET};
+	char m_buffer [BUFF_MAX] = {0};
 };

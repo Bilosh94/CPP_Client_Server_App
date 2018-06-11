@@ -16,7 +16,6 @@ SerNetwork::~SerNetwork()
 
 void SerNetwork::initialize()
 {
-	std::cout << "Vyšlo to" << std::endl;
 	m_socket = socket(AF_INET, SOCK_STREAM, 0);
 	if (m_socket < 0)
  	{
@@ -38,7 +37,6 @@ void SerNetwork::initialize()
    	}
 
    	listen(m_socket,5);
-   	std::cout << "Vyšlo to" << std::endl;
 }
 
 int SerNetwork::prijmuti()

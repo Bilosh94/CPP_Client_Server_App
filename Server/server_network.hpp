@@ -16,5 +16,5 @@ public:
 private:
 	struct sockaddr_in m_servAddress;
 	struct sockaddr_in m_cliAddress;
-	int m_port {-87};
+	int m_port {NO_PORT};
 };

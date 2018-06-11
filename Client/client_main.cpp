@@ -13,15 +13,24 @@ int main(int argc, char* argv[])
 		std::cout << "Nastala chyba, špatné parametry nebo jejich duplikace" << std::endl;
 		return 1;
 	}
-	std::cout << "Client: " << Parser.getPort() << Parser.getHost() << std::endl;
 
 	CliNetwork Sit(Parser.getHost(), Parser.getPort());
 	Sit.initialize();
-	if(!Sit.getError())
+	std::string mess = "";
+
+	while(!Sit.getError())
 	{
-		Sit.sendMessage("Ahoj\r\n");
-		std::string mess = Sit.getMessage();
-		std::cout << mess << std::endl;
+		if (mess != "")
+		{
+			std::cout << "Zpráva od serveru: " << mess << std::endl;
+		}
+		std::cout << "Zpráva pro server: " << std::flush;
+		std::getline(std::cin, mess);
+		Sit.sendMessage(mess);
+		if(!Sit.getError())
+		{
+			mess = Sit.getMessage();
+		}
 	}
 
 

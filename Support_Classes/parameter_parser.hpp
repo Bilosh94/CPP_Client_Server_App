@@ -7,6 +7,7 @@
 #include <iostream>
 #include <string>
 #include <vector>
+#include "constants.hpp"
 
 //Server -m mode -p port
 
@@ -17,7 +18,7 @@ class ParameterParser
 private:
 	std::vector <std::string> m_parameters;
 	bool m_error {false};
-	bool m_mode {false};
+	bool m_mode {false}; // předělat na string nebo enum
 	int m_port {0};
 	std::string m_host {""};
 

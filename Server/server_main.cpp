@@ -13,8 +13,7 @@ int main(int argc, char* argv[])
 		std::cout << "Nastala chyba, špatné parametry nebo jejich duplikace" << std::endl;
 		return 1;
 	}
-	
-	std::cout << Parser.getMode() << Parser.getPort() << Parser.getHost() << std::endl;
+
 
 	if (Parser.getMode())
 	{
@@ -23,15 +22,17 @@ int main(int argc, char* argv[])
 		Sit.prijmuti();
 		//Pro každe přijmutí vytvoří nový thread
 		std::string mess = Sit.getMessage();
-		if (mess == "Ahoj\r\n")
+		while (!Sit.getError())
 		{
-			mess = "Ahoj\n";
+			std::cout << "Zpráva od Klienta: " << mess << std::endl;
+			std::cout << "Zpráva pro klienta: " << std::flush;
+			std::getline(std::cin, mess);
+			Sit.sendMessage(mess);
+			if(!Sit.getError())
+			{
+				mess = Sit.getMessage();
+			}
 		}
-		else
-		{
-			mess = "Neahoj\n";
-		}
-		Sit.sendMessage(mess);
 		//Network Mode
 	}
 	else
