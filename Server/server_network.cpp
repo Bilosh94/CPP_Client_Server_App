@@ -11,7 +11,11 @@ SerNetwork::SerNetwork(int t_port)
 
 SerNetwork::SerNetwork(int t_socket, bool t_type)
 {
-	m_socket = t_socket;
+	//Zbytečné, jen kvůli nedotaženosti řešení -> prozatimní stav
+	if (t_type)
+	{
+		m_socket = t_socket;
+	}
 }
 
 SerNetwork::~SerNetwork()

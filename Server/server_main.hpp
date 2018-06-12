@@ -5,17 +5,17 @@
 #pragma once
 
 #include <iostream>
+#include <thread>
 #include "server_network.hpp"
 #include "../Support_Classes/parameter_parser.hpp"
 #include "../Support_Classes/constants.hpp"
 
 //Třída starající se o celý průchod přes vlákno (musí zajistit obousměrnou komunikaci a její "překlad")
-class ThreadMainetence
+class ThreadControl
 {
 public:
-	ThreadMainetence();
-	~ThreadMainetence();
-	void setSocket(int t_socket);
+	ThreadControl(int t_socket);
+	~ThreadControl();
 	void prubeh();
 
 private:
@@ -24,3 +24,6 @@ private:
 	//Databázový objekt
 	//metody pro propojení
 };
+
+//Trošku složitosti
+void ThreadFunction (ThreadControl t_Thread);

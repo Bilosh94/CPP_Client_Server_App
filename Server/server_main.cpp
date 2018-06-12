@@ -20,11 +20,18 @@ int main(int argc, char* argv[])
 	{
 		SerNetwork Sit(Parser.getPort());
 		Sit.initialize();
-		/*while(!Sit.getError())
+		while(!Sit.getError())
 		{
 			int socket_descriptor = Sit.prijmuti();
-			std::thread vlakno;
-		}*/
+			if (socket_descriptor > -1)
+			{
+				//Není ideální, ale aktuálně nejschůdnější -> chtělo by zpřehlednit
+				ThreadControl Control(socket_descriptor);
+				std::thread vlakno(ThreadFunction, Control);
+				vlakno.detach();
+			}
+		}
+		/*
 		Sit.prijmuti();
 		//Pro každe přijmutí vytvoří nový thread
 		std::string mess = Sit.getMessage();
@@ -38,7 +45,7 @@ int main(int argc, char* argv[])
 			{
 				mess = Sit.getMessage();
 			}
-		}
+		}*/
 		//Network Mode
 	}
 	else
@@ -54,4 +61,37 @@ int main(int argc, char* argv[])
 
 	// 
 	return 0;
+}
+
+ThreadControl::ThreadControl(int t_socket)
+{
+	m_socket = t_socket;
+}
+
+ThreadControl::~ThreadControl()
+{
+
+}
+
+void ThreadControl::prubeh()
+{
+	std::cout << "Vlákno startuje" << std::endl;
+	SerNetwork SitThread(m_socket, true);
+	std::string mess = SitThread.getMessage();
+	while (!SitThread.getError())
+	{
+		std::cout << "Zpráva od Klienta: " << mess << std::endl;
+		//std::cout << "Zpráva pro klienta: " << std::flush;
+		//std::getline(std::cin, mess);
+		SitThread.sendMessage(mess);
+		if(!SitThread.getError())
+		{
+			mess = SitThread.getMessage();
+		}
+	}
+}
+
+void ThreadFunction (ThreadControl t_Thread)
+{
+	t_Thread.prubeh();
 }
