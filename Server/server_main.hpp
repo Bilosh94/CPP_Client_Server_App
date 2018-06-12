@@ -15,8 +15,11 @@ class ThreadMainetence
 public:
 	ThreadMainetence();
 	~ThreadMainetence();
+	void setSocket(int t_socket);
+	void prubeh();
 
 private:
+	int m_socket {NO_SOCKET};
 	//Síťový objekt
 	//Databázový objekt
 	//metody pro propojení

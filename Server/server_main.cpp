@@ -20,6 +20,11 @@ int main(int argc, char* argv[])
 	{
 		SerNetwork Sit(Parser.getPort());
 		Sit.initialize();
+		/*while(!Sit.getError())
+		{
+			int socket_descriptor = Sit.prijmuti();
+			std::thread vlakno;
+		}*/
 		Sit.prijmuti();
 		//Pro každe přijmutí vytvoří nový thread
 		std::string mess = Sit.getMessage();
