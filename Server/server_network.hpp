@@ -1,6 +1,7 @@
 //	Autor:	Martin Biloš
 //	Co:		CPP_Client_Server_App
 //	Důvod:	Header třídy komunikace přes síť pro server
+//	TODO:	Oddělit konstruktory se stejným typem (teoreticky short x int, ale nedostačující)
 
 #pragma once
 
@@ -9,6 +10,8 @@
 class SerNetwork : public Network
 {
 public:
+	// jak oddělit 2 konstruktory se stejným 
+	SerNetwork(int t_socket, bool t_type);
 	SerNetwork(int t_port);
 	~SerNetwork();
 	void initialize();

@@ -9,6 +9,11 @@ SerNetwork::SerNetwork(int t_port)
 	m_port = t_port;
 }
 
+SerNetwork::SerNetwork(int t_socket, bool t_type)
+{
+	m_socket = t_socket;
+}
+
 SerNetwork::~SerNetwork()
 {
 	close(m_socket);
@@ -47,7 +52,7 @@ int SerNetwork::prijmuti()
 	newsock = accept(m_socket, (struct sockaddr *) &m_cliAddress, &clilen);
 	if(newsock > 0)
 	{
-		m_socket = newsock;
+		//m_socket = newsock;
 		return newsock;
 	}
 	else
