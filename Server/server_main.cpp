@@ -69,7 +69,8 @@ ThreadControl::ThreadControl(int t_socket)
 
 ThreadControl::~ThreadControl()
 {
-
+	//Mělo by být zbytečné, ale kvůli bezpečnosti
+	close(m_socket);
 }
 
 void ThreadControl::prubeh()

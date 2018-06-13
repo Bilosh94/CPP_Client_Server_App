@@ -9,7 +9,7 @@ CLIENTFILES = Client/client_main.cpp Client/client_network.cpp
 FILES = Support_Classes/parameter_parser.cpp Support_Classes/network.cpp 
 
 
-all: Server_App Client_App
+all: clean Server_App Client_App
 
 Server_App:
 	$(CC) $(SERVERFILES) $(FILES) -pthread $(CFLAGS) -o Server_App
