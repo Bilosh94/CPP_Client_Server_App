@@ -26,8 +26,7 @@ int main(int argc, char* argv[])
 			if (socket_descriptor > -1)
 			{
 				//Není ideální, ale aktuálně nejschůdnější -> chtělo by zpřehlednit
-				ThreadControl Control(socket_descriptor);
-				std::thread vlakno(ThreadFunction, Control);
+				std::thread vlakno(ThreadFunction, socket_descriptor);
 				vlakno.detach();
 			}
 		}
@@ -81,8 +80,6 @@ void ThreadControl::prubeh()
 	while (!SitThread.getError())
 	{
 		std::cout << "Zpráva od Klienta: " << mess << std::endl;
-		//std::cout << "Zpráva pro klienta: " << std::flush;
-		//std::getline(std::cin, mess);
 		SitThread.sendMessage(mess);
 		if(!SitThread.getError())
 		{
@@ -91,7 +88,8 @@ void ThreadControl::prubeh()
 	}
 }
 
-void ThreadFunction (ThreadControl t_Thread)
+void ThreadFunction (int t_socket)
 {
-	t_Thread.prubeh();
+	ThreadControl Vlakno(t_socket);
+	Vlakno.prubeh();
 }

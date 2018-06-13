@@ -26,4 +26,4 @@ private:
 };
 
 //Trošku složitosti
-void ThreadFunction (ThreadControl t_Thread);
+void ThreadFunction (int t_socket);
