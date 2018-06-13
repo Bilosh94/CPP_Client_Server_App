@@ -19,6 +19,7 @@ public:
 	void prubeh();
 
 private:
+	// Co tu mít odkazy na objekty? To by bylo lepší, ne?
 	int m_socket {NO_SOCKET};
 	//Síťový objekt
 	//Databázový objekt

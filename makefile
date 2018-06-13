@@ -4,7 +4,7 @@
 CC = g++
 CFLAGS = -Wall -Wextra -pedantic -Wshadow -Wnon-virtual-dtor -std=c++17
 
-SERVERFILES = Server/server_main.cpp Server/server_network.cpp
+SERVERFILES = Server/server_main.cpp Server/server_network.cpp Server/database.cpp
 CLIENTFILES = Client/client_main.cpp Client/client_network.cpp
 FILES = Support_Classes/parameter_parser.cpp Support_Classes/network.cpp 
 
